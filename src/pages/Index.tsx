@@ -1,7 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Brain, FileText, Compass } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
@@ -15,9 +15,11 @@ const Index = () => {
           <p className="text-xl text-gray-600 mb-8">
             Discover AI-safe career paths, enhance your skills, and build your future with personalized guidance.
           </p>
-          <Button size="lg" className="bg-[#9b87f5] hover:bg-[#7E69AB]">
-            Get Started <ArrowRight className="ml-2" />
-          </Button>
+          <Link to="/skills-assessment">
+            <Button size="lg" className="bg-[#9b87f5] hover:bg-[#7E69AB]">
+              Get Started <ArrowRight className="ml-2" />
+            </Button>
+          </Link>
         </div>
       </section>
 
