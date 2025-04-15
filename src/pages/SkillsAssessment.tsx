@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
@@ -7,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import CareerSuggestions from "@/components/CareerSuggestions";
 
 const workTypes = [
   { value: "remote", label: "Remote" },
@@ -23,6 +23,7 @@ const careerGoals = [
 
 const SkillsAssessment = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [showResults, setShowResults] = useState(false);
   
   const form = useForm({
     defaultValues: {
@@ -34,17 +35,22 @@ const SkillsAssessment = () => {
     }
   });
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     setIsLoading(true);
     try {
       console.log("Form data:", data);
-      // Backend integration will go here
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      setShowResults(true);
     } catch (error) {
       console.error("Error submitting form:", error);
     } finally {
       setIsLoading(false);
     }
   };
+
+  if (showResults) {
+    return <CareerSuggestions />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-purple-50 py-12">
