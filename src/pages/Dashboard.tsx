@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ChevronRight, BookOpen, Target, BarChart2, Award } from "lucide-react";
 import SkillProgressChart from "@/components/SkillProgressChart";
 import CareerCard from "@/components/CareerCard";
+import PowerBIDashboard from "@/components/PowerBIDashboard";
 
 const Dashboard = () => {
   const [name, setName] = useState("User");
@@ -83,6 +83,14 @@ const Dashboard = () => {
                   </div>
                 ))}
               </div>
+            </section>
+
+            {/* Power BI Dashboard */}
+            <section className="dashboard-card opacity-0">
+              <PowerBIDashboard 
+                title="Career Analytics"
+                embedUrl="YOUR_POWER_BI_EMBED_URL"  // Replace with your actual Power BI embed URL
+              />
             </section>
 
             <section className="dashboard-card opacity-0">
