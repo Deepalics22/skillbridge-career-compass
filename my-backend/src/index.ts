@@ -1,20 +1,20 @@
+
 import express from 'express';
 import dotenv from 'dotenv';
-import connectDB from './config/db'; // Ensure this is pointing to the correct file
+import connectDB from './config/db';
 import userRoutes from './routes/user';
+import careerRoutes from './routes/career';
 
-dotenv.config(); // Loads environment variables from .env file
-connectDB(); // Establish the DB connection
+dotenv.config();
+connectDB();
 
 const app = express();
 
-// Middleware to parse JSON request bodies
 app.use(express.json());
 
-// Use the user routes for signup, login, etc.
 app.use('/api', userRoutes);
+app.use('/api/career', careerRoutes);
 
-// Default port or the one from the environment variables
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
